@@ -14,7 +14,7 @@ class DeeplNvim(object):
     @vim.function('_deepl_init', sync=True)
     def _deepl_init(self, args):
         self.key = self.nvim.eval('g:deepl#api_key')
-        pass
+        self.endpoint = self.nvim.eval('g:deepl#endpoint') or "https://api.deepl.com/v2/translate"
 
     @vim.function('_deepl_get_translated_text', sync=True)
     def _get_translated_text(self, args) -> str:
@@ -25,6 +25,6 @@ class DeeplNvim(object):
             "text": args[2],
             "split_sentences": "nonewlines"
         }
-        request = requests.post("https://api.deepl.com/v2/translate", data=params)
+        request = requests.post(self.endpoint, data=params)
         result = request.json()
         return result["translations"][0]["text"]
