@@ -1,4 +1,4 @@
-*deepl.txt*
+deepl.txt DeepL translation plugin
 
 ==============================================================================
 USAGE							*deepl-usage*
@@ -13,6 +13,28 @@ vmap ze :call deepl#replace_to_translated_text('', 'EN')<CR>gvgq
 nmap zj vip:call deepl#replace_to_translated_text('', 'JA')<CR>gvgq
 nmap ze vip:call deepl#replace_to_translated_text('', 'EN')<CR>gvgq
 <
+
+------------------------------------------------------------------------------
+VARIABLES						*deepl-variables*
+
+g:deepl#endpoint					*g:deepl#endpoint* 
+
+  Switch endpoints to your plan of DeepL.
+
+  * DeepL API Pro
+  let g:deepl#endpoint = "https://api.deepl.com/v2/translate"
+
+  * DeepL API Free
+  let g:deepl#endpoint = "https://api-free.deepl.com/v2/translate"
+
+g:deepl#auth_key					*g:deepl#auth_key*
+
+  Set your Authentication Key for DeepL API. You can get it on your account
+  page (https://www.deepl.com/pro-account/summary).
+
+>
+  let g:deepl#auth_key = "00000000-0000-0000-0000-000000000000:fx"
+
 
 
 ==============================================================================
